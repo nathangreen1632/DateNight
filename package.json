@@ -1,0 +1,30 @@
+{
+  "name": "datenight",
+  "version": "1.0.0",
+  "description": "Date Night generator",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm --prefix client run dev\" \"npm --prefix server run dev\"",
+    "build": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build",
+    "build:all": "npm run build && npm run build:server",
+    "serve": "npm --prefix server run dev",
+    "start": "npm --prefix server run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathangreen1632/DateNight.git"
+  },
+  "keywords": [],
+  "author": "Nathan Green",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathangreen1632/DateNight/issues"
+  },
+  "homepage": "https://github.com/nathangreen1632/DateNight#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
