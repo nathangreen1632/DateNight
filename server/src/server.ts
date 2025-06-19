@@ -1,8 +1,10 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import helmet from "helmet";
 
 const app = express();
+app.use(helmet.hidePoweredBy());
 const PORT = process.env.PORT ?? 4000;
 
 // Required for __dirname in ES modules
