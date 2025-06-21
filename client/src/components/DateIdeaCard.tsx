@@ -1,16 +1,42 @@
-type DateIdeaCardProps = {
-  idea: string;
-};
+import { saveFavorite } from '../utils/saveFavorite';
+import { toast } from 'react-hot-toast';
 
-function DateIdeaCard({ idea }: Readonly<DateIdeaCardProps>) {
+interface DateIdeaCardProps {
+  idea: string;
+  onRefresh: () => void;
+  mood?: string;
+}
+
+function DateIdeaCard({ idea, onRefresh, mood }: Readonly<DateIdeaCardProps>) {
+  const handleSave = async () => {
+    const result = await saveFavorite(idea, mood);
+    if (result.success) {
+      toast.success('Date idea saved to favorites!');
+    } else {
+      toast.error('Failed to save date idea.');
+      console.error('Save failed:', result.error);
+    }
+  };
+
+  const match = RegExp(/\*\*(.*?)\*\*\s*(.+)/s).exec(idea);
+  const title = match?.[1] ?? idea;
+  const description = match?.[2] ?? '';
+
   return (
     <div className="bg-amber-50 p-4 rounded shadow-inner text-center">
-      <p className="text-xl font-medium mb-4">{idea}</p>
+      <h2 className="text-lg font-bold text-slate-800 mb-2">{title}</h2>
+      <p className="text-base text-slate-700 mb-4">{description}</p>
       <div className="flex justify-center gap-3">
-        <button className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">
+        <button
+          onClick={handleSave}
+          className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600"
+        >
           Save
         </button>
-        <button className="px-4 py-2 border border-indigo-500 text-indigo-500 rounded hover:bg-indigo-50">
+        <button
+          onClick={onRefresh}
+          className="px-4 py-2 border border-indigo-500 text-indigo-500 rounded hover:bg-indigo-50"
+        >
           Spin Again
         </button>
       </div>
