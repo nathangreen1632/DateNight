@@ -1,4 +1,4 @@
-import express, {Request, Response, Router} from 'express';
+import express, { Request, Response, Router } from 'express';
 import { getIdeasFromOpenAI } from '../services/openaiService.js';
 
 const router: Router = express.Router();
@@ -7,19 +7,28 @@ interface IdeasQuery {
   lat?: string;
   lon?: string;
   mood?: string | string[];
+  budget?: string | string[];
 }
 
 router.get('/', async (req: Request<{}, {}, {}, IdeasQuery>, res: Response): Promise<void> => {
-  const { lat, lon, mood: rawMood } = req.query;
+  const { lat, lon, mood: rawMood, budget: rawBudget } = req.query;
 
   let mood: string | undefined;
-
   if (Array.isArray(rawMood)) {
     if (typeof rawMood[0] === 'string') {
       mood = rawMood[0];
     }
   } else if (typeof rawMood === 'string') {
     mood = rawMood;
+  }
+
+  let budget: string | undefined;
+  if (Array.isArray(rawBudget)) {
+    if (typeof rawBudget[0] === 'string') {
+      budget = rawBudget[0];
+    }
+  } else if (typeof rawBudget === 'string') {
+    budget = rawBudget;
   }
 
   if (!lat || !lon) {
@@ -36,7 +45,7 @@ router.get('/', async (req: Request<{}, {}, {}, IdeasQuery>, res: Response): Pro
   }
 
   try {
-    const ideas: string[] = await getIdeasFromOpenAI(latitude, longitude, mood);
+    const ideas: string[] = await getIdeasFromOpenAI(latitude, longitude, mood, budget);
     res.json({ ideas });
   } catch (err) {
     console.error('[OpenAI Error]', err);
