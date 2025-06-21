@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(allRoutes);
+app.use('/api', allRoutes);
 
 app.get('*', (_, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
