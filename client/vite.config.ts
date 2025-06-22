@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    outDir: path.resolve(__dirname, '../server/public'),
+    outDir: path.resolve(__dirname, '../server/public/client'),
     emptyOutDir: true,
   },
   server: {

@@ -2,14 +2,11 @@
   "name": "datenight",
   "version": "1.0.0",
   "description": "Date Night generator",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npm --prefix client run dev\" \"npm --prefix server run dev\"",
-    "build": "npm --prefix client run build",
-    "build:server": "npm --prefix server run build",
-    "build:all": "npm run build && npm run build:server",
-    "serve": "npm --prefix server run dev",
+    "install:all": "npm install --no-audit --no-fund && npm --prefix client install --no-audit --no-fund && npm --prefix server install --no-audit --no-fund",
+    "build": "npm --prefix client run build && npm --prefix server run build",
     "start": "npm --prefix server run start"
   },
   "repository": {
@@ -25,9 +22,5 @@
   "homepage": "https://github.com/nathangreen1632/DateNight#readme",
   "devDependencies": {
     "concurrently": "^9.1.2"
-  },
-  "dependencies": {
-    "react-hot-toast": "^2.5.2",
-    "zustand": "^5.0.5"
   }
 }
