@@ -4,8 +4,8 @@ import favoritesRoutes from './favorites.js';
 
 const router: Router = Router();
 
-router.use('/api/ideas', ideasRoutes);
-router.use('/api/favorites', favoritesRoutes);
+router.use('/ideas', ideasRoutes);
+router.use('/favorites', favoritesRoutes);
 
 
 export default router;
