@@ -51,7 +51,7 @@ Randomizer: ${randomnessToken}
   });
 
   const raw = response.choices[0]?.message?.content ?? '';
-  const matches = raw.match(/\d+\.\s+[\s\S]*?(?=\n\d+\.|\n?$)/g) || [];
+  const matches = raw.split(/\n(?=\d+\.\s)/).filter(line => /^\d+\.\s/.test(line));
 
   return matches.slice(0, 10).map((idea) => idea.trim());
 }
