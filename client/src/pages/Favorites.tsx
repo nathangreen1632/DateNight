@@ -52,7 +52,7 @@ function Favorites() {
                 <div>
                   <h2 className="text-lg font-bold text-indigo-500 mb-2">{title}</h2>
                    <p className="text-base text-white mb-4">{description}</p>
-                  <div className="text-sm text-black">
+                  <div className="text-sm text-slate-300">
                     {fav.mood && <span>Mood: {fav.mood} • </span>}
                     {fav.budget && <span>Budget: {fav.budget}</span>}
                   </div>
