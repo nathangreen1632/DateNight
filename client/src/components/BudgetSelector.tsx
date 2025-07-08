@@ -15,7 +15,7 @@ function BudgetSelector({ budgets, onSelect }: Readonly<BudgetSelectorProps>) {
 
   return (
     <div>
-      <label htmlFor="budget" className="block font-semibold text-red-400 mb-1">
+      <label htmlFor="budget" className="block font-semibold text-red-500 mb-1">
         Budget
       </label>
       <div className="flex gap-2">
