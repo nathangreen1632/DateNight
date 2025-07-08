@@ -24,7 +24,7 @@ function DateIdeaCard({ idea, onRefresh, mood }: Readonly<DateIdeaCardProps>) {
 
   return (
     <div className="bg-black p-4 rounded shadow-inner text-center">
-      <h2 className="text-lg font-bold text-red-400 mb-2">{title}</h2>
+      <h2 className="text-lg font-bold text-red-500 mb-2">{title}</h2>
       <p className="text-base text-white mb-4">{description}</p>
       <div className="flex justify-center gap-3">
         <button
