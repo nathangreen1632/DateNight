@@ -14,10 +14,10 @@ function Home() {
   const setBudget = useAppStore((state) => state.setBudget);
 
   return (
-    <div className="min-h-screen bg-black text-slate-800 p-6">
+    <div className="min-h-screen bg-black text-slate-200 p-6">
       <Navbar />
       <div className="flex flex-col items-center">
-        <h1 className="text-4xl font-bold text-red-400 mb-2">DateNight</h1>
+        <h1 className="text-4xl font-bold text-red-500 mb-2">DateNight</h1>
         <p className="text-lg mb-6 text-center text-slate-300 max-w-md">
           Shake up your routine, one idea at a time. Choose your mood and budget to get a unique date suggestion.
         </p>
