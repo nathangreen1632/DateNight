@@ -23,9 +23,9 @@ function DateIdeaCard({ idea, onRefresh, mood }: Readonly<DateIdeaCardProps>) {
   const description = match?.[2] ?? '';
 
   return (
-    <div className="bg-amber-50 p-4 rounded shadow-inner text-center">
-      <h2 className="text-lg font-bold text-slate-800 mb-2">{title}</h2>
-      <p className="text-base text-slate-700 mb-4">{description}</p>
+    <div className="bg-black p-4 rounded shadow-inner text-center">
+      <h2 className="text-lg font-bold text-red-500 mb-2">{title}</h2>
+      <p className="text-base text-white mb-4">{description}</p>
       <div className="flex justify-center gap-3">
         <button
           onClick={handleSave}
@@ -35,7 +35,7 @@ function DateIdeaCard({ idea, onRefresh, mood }: Readonly<DateIdeaCardProps>) {
         </button>
         <button
           onClick={onRefresh}
-          className="px-4 py-2 border border-indigo-500 text-indigo-500 rounded hover:bg-indigo-50"
+          className="px-4 py-2 bg-emerald-500 text-black rounded hover:bg-emerald-600"
         >
           Spin Again
         </button>
