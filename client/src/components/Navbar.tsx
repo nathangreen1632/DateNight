@@ -4,7 +4,7 @@ function Navbar() {
   const { pathname } = useLocation();
 
   const linkClass: (path: string) => string = (path: string) =>
-    `px-4 py-2 rounded text-md font-large ${
+    `px-4 py-2 rounded text-base font-lg ${
       pathname === path ? 'bg-indigo-600 text-white hover:bg-indigo-500' : 'text-indigo-600 hover:bg-indigo-100'
     }`;
 
