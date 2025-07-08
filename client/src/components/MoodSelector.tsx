@@ -15,7 +15,7 @@ function MoodSelector({ moods, onSelect }: Readonly<MoodSelectorProps>) {
 
   return (
     <div>
-      <label htmlFor="mood" className="block font-semibold text-red-400 mb-1">
+      <label htmlFor="mood" className="block font-semibold text-red-500 mb-1">
         Choose a Mood
       </label>
       <div id="mood" className="flex flex-wrap gap-2">
